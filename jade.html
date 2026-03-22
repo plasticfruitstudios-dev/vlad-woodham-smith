@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jade — Vlad Woodham-Smith</title>
+
+  <style>
+    @font-face {
+      font-family: 'Apercu Pro';
+      src: url('font/ApercuPro-Regular.woff2') format('woff2'),
+           url('font/ApercuPro-Regular.woff') format('woff');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Apercu Pro';
+      src: url('font/ApercuPro-Medium.woff2') format('woff2'),
+           url('font/ApercuPro-Medium.woff') format('woff');
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #000000;
+      min-height: 100vh;
+      font-family: 'Apercu Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-weight: 400;
+      color: #ffffff;
+      overflow-x: hidden;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #000000;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      padding: 28px 32px;
+      border-bottom: 0.5px solid rgba(255,255,255,0.08);
+    }
+
+    .wordmark {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      text-decoration: none;
+    }
+
+    .wordmark-name {
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #ffffff;
+      line-height: 1;
+    }
+
+    .wordmark-sub {
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      color: #aaaaaa;
+      line-height: 1;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+      padding-top: 1px;
+    }
+
+    .nav-links a {
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      color: #aaaaaa;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: #ff0000; }
+    .nav-links a.active { color: #ffffff; }
+
+    .project-content {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 52px 32px 0;
+      opacity: 0;
+      transform: translateY(12px);
+      animation: fadeUp 0.6s ease 0.1s forwards;
+    }
+
+    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+
+    .project-title {
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      color: #aaaaaa;
+      margin-bottom: 32px;
+    }
+
+    .tiktok-grid {
+      display: flex;
+      overflow-x: auto;
+      gap: 0;
+      scrollbar-width: none;
+    }
+
+    .tiktok-grid::-webkit-scrollbar { display: none; }
+
+    .tiktok-grid blockquote {
+      flex: 0 0 325px;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+
+    .tiktok-grid > div {
+      flex: 0 0 325px;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+
+    .tiktok-grid iframe { display: block !important; margin: 0 !important; }
+
+    footer {
+      padding: 24px 32px;
+      margin-top: 64px;
+      border-top: 0.5px solid rgba(255,255,255,0.08);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    footer span {
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+      color: #444444;
+    }
+
+    @media (max-width: 768px) {
+      nav { padding: 20px; }
+      .project-content { padding: 36px 20px 0; }
+      footer { padding: 20px; flex-direction: column; gap: 8px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="wordmark">
+      <span class="wordmark-name">Vlad Woodham-Smith</span>
+      <span class="wordmark-sub">cinematographer</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">moving image</a></li>
+      <li><a href="stills.html">stills</a></li>
+      <li><a href="info.html">info</a></li>
+    </ul>
+  </nav>
+
+  <div class="project-content">
+
+    <p class="project-title">jade — short form series</p>
+
+    <div class="tiktok-grid">
+      <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@jadethirlwall/video/7480206002684480790" data-video-id="7480206002684480790"><section></section></blockquote>
+      <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@jadethirlwall/video/7474662293121371414" data-video-id="7474662293121371414"><section></section></blockquote>
+      <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@jadethirlwall/video/7467996347296140577" data-video-id="7467996347296140577"><section></section></blockquote>
+      <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@jadethirlwall/video/7454178768601615649" data-video-id="7454178768601615649"><section></section></blockquote>
+      <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@jadethirlwall/video/7441240153810652448" data-video-id="7441240153810652448"><section></section></blockquote>
+      <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@jadethirlwall/video/7439758582784068896" data-video-id="7439758582784068896"><section></section></blockquote>
+      <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@jadethirlwall/video/7433858537438203169" data-video-id="7433858537438203169"><section></section></blockquote>
+    </div>
+
+  </div>
+
+  <footer>
+    <span>© vlad woodham-smith. 2026.</span>
+  </footer>
+
+  <script async src="https://www.tiktok.com/embed.js"></script>
+
+</body>
+</html>

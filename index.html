@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vlad Woodham-Smith — Cinematographer</title>
+
+  <style>
+    @font-face {
+      font-family: 'Apercu Pro';
+      src: url('font/ApercuPro-Regular.woff2') format('woff2'),
+           url('font/ApercuPro-Regular.woff') format('woff');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Apercu Pro';
+      src: url('font/ApercuPro-Medium.woff2') format('woff2'),
+           url('font/ApercuPro-Medium.woff') format('woff');
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #000000;
+      min-height: 100vh;
+      font-family: 'Apercu Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-weight: 400;
+      color: #ffffff;
+      overflow-x: hidden;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #000000;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      padding: 28px 32px;
+      border-bottom: 0.5px solid rgba(255,255,255,0.08);
+    }
+
+    .wordmark {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      text-decoration: none;
+    }
+
+    .wordmark-name {
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #ffffff;
+      line-height: 1;
+    }
+
+    .wordmark-sub {
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      color: #aaaaaa;
+      line-height: 1;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+      padding-top: 1px;
+    }
+
+    .nav-links a {
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      color: #aaaaaa;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: #ff0000; }
+    .nav-links a.active { color: #ffffff; }
+
+    .grid {
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+    }
+
+    .grid-item {
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+      display: block;
+      text-decoration: none;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+
+    .grid-item.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .grid-item img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                  filter 0.35s ease;
+    }
+
+    .grid-item:hover img {
+      transform: scale(1.03);
+      filter: brightness(0.55);
+    }
+
+    .item-label {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 48px 14px 14px;
+      background: linear-gradient(transparent, rgba(0,0,0,0.55));
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+
+    .grid-item:hover .item-label { opacity: 1; }
+
+    .item-label span {
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+      color: #ffffff;
+      line-height: 1.5;
+    }
+
+    footer {
+      padding: 24px 32px;
+      border-top: 0.5px solid rgba(255,255,255,0.08);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 0;
+    }
+
+    footer span {
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+      color: #444444;
+    }
+
+    @media (max-width: 768px) {
+      nav { padding: 20px; }
+      .grid { grid-template-columns: repeat(2, 1fr); }
+      footer { padding: 20px; flex-direction: column; gap: 8px; text-align: center; }
+    }
+
+    @media (max-width: 480px) {
+      .grid { grid-template-columns: 1fr; }
+      .nav-links { gap: 18px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="wordmark">
+      <span class="wordmark-name">Vlad Woodham-Smith</span>
+      <span class="wordmark-sub">cinematographer</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">moving image</a></li>
+      <li><a href="stills.html">stills</a></li>
+      <li><a href="info.html">info</a></li>
+    </ul>
+  </nav>
+
+  <div class="grid">
+
+    <a class="grid-item" href="https://vimeo.com/1037862617" target="_blank" rel="noopener">
+      <img src="gifs/audemars.gif" alt="Audemars Piguet" loading="lazy" />
+      <div class="item-label"><span>audemars piguet — the time is now</span></div>
+    </a>
+
+    <a class="grid-item" href="diamond-store.html" rel="noopener">
+      <img src="gifs/diamond-store.gif" alt="The Diamond Store" loading="lazy" />
+      <div class="item-label"><span>the diamond store — seasonal campaigns</span></div>
+    </a>
+
+    <a class="grid-item" href="https://www.instagram.com/p/DQ7DkjKDPG2/" target="_blank" rel="noopener">
+      <img src="gifs/sam-smith.gif" alt="Sam Smith" loading="lazy" />
+      <div class="item-label"><span>sam smith — to be free (live visuals)</span></div>
+    </a>
+
+    <a class="grid-item" href="https://www.youtube.com/watch?v=5LNlBIg4g3I" target="_blank" rel="noopener">
+      <img src="gifs/dog.gif" alt="Piri & Tommy" loading="lazy" />
+      <div class="item-label"><span>piri & tommy — dog</span></div>
+    </a>
+
+    <a class="grid-item" href="https://www.youtube.com/watch?v=HxlhtZHmRts" target="_blank" rel="noopener">
+      <img src="gifs/gorgon.gif" alt="Gorgon City" loading="lazy" />
+      <div class="item-label"><span>gorgon city, north — breathe you in</span></div>
+    </a>
+
+    <a class="grid-item" href="https://www.youtube.com/watch?v=YHpDqoHMi_k" target="_blank" rel="noopener">
+      <img src="gifs/sienna-mews.gif" alt="Sienna Spiro" loading="lazy" />
+      <div class="item-label"><span>sienna spiro — maybe. (live from the mews)</span></div>
+    </a>
+
+    <a class="grid-item" href="https://www.youtube.com/watch?v=SJMLCyhYvCE" target="_blank" rel="noopener">
+      <img src="gifs/somedays.gif" alt="Sonny Fodera & Clementine Douglas" loading="lazy" />
+      <div class="item-label"><span>sonny fodera & clementine douglas — tell me</span></div>
+    </a>
+
+    <a class="grid-item" href="jade.html" rel="noopener">
+      <img src="gifs/jade.gif" alt="Jade" loading="lazy" />
+      <div class="item-label"><span>jade — short form series</span></div>
+    </a>
+
+    <a class="grid-item" href="https://www.youtube.com/watch?v=AH7d7mlZWuQ" target="_blank" rel="noopener">
+      <img src="gifs/butterfly.gif" alt="Sienna Spiro" loading="lazy" />
+      <div class="item-label"><span>sienna spiro — butterfly effect</span></div>
+    </a>
+
+    <a class="grid-item" href="https://www.youtube.com/watch?v=0U4TmlrLKuI" target="_blank" rel="noopener">
+      <img src="gifs/tell-me.gif" alt="Sonny Fodera" loading="lazy" />
+      <div class="item-label"><span>sonny fodera, d.o.d & poppy baskcomb — think about us</span></div>
+    </a>
+
+    <a class="grid-item" href="jordan-rakei.html" rel="noopener">
+      <img src="gifs/jordan-rakei.gif" alt="Jordan Rakei" loading="lazy" />
+      <div class="item-label"><span>jordan rakei — live at abbey road</span></div>
+    </a>
+
+    <a class="grid-item" href="https://www.youtube.com/watch?v=R63gdYd4fEM" target="_blank" rel="noopener">
+      <img src="gifs/style.gif" alt="Taiki Nulight" loading="lazy" />
+      <div class="item-label"><span>taiki nulight — style</span></div>
+    </a>
+
+  </div>
+
+  <footer>
+    <span>© vlad woodham-smith. 2026.</span>
+  </footer>
+
+  <script>
+    // Fix grid row gaps by setting pixel-perfect heights from real DOM measurements
+    function fixGridHeights() {
+      const grid = document.querySelector('.grid');
+      if (!grid) return;
+      const items = grid.querySelectorAll('.grid-item');
+      if (!items.length) return;
+      const cols = window.innerWidth <= 480 ? 1 : window.innerWidth <= 768 ? 2 : 3;
+      const itemWidth = grid.offsetWidth / cols;
+      const itemHeight = Math.round(itemWidth * 0.75); // 4:3 ratio
+      items.forEach(item => { item.style.height = itemHeight + 'px'; });
+    }
+
+    fixGridHeights();
+
+    let _resizeTimer;
+    window.addEventListener('resize', function () {
+      clearTimeout(_resizeTimer);
+      _resizeTimer = setTimeout(fixGridHeights, 50);
+    });
+
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 60);
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.05 });
+    document.querySelectorAll('.grid-item').forEach(el => obs.observe(el));
+  </script>
+
+</body>
+</html>
