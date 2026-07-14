@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>404 &mdash; Vlad Woodham-Smith</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #000000; min-height: 100vh;
+      font-family: 'Apercu Pro', 'Apercu', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-weight: 500; color: #ffffff; overflow-x: hidden;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .wrap {
+      text-align: center;
+      opacity: 0; transform: translateY(12px);
+      animation: fadeUp 0.7s ease 0.2s forwards;
+    }
+    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+    .wrap .wordmark-name {
+      display: block;
+      font-size: 14px; font-weight: 500; letter-spacing: 0.1em;
+      text-transform: uppercase; color: #ffffff; line-height: 1;
+    }
+    .wrap .wordmark-sub {
+      display: block; margin-top: 6px;
+      font-size: 12px; font-weight: 500; letter-spacing: 0.02em;
+      text-transform: lowercase; color: #ffffff; opacity: 0.45; line-height: 1;
+    }
+    .wrap .mark { display: block; text-decoration: none; margin-bottom: 36px; }
+    .wrap .mark:hover .wordmark-name { color: #ff0000; }
+    .wrap p {
+      font-size: 11px; font-weight: 500; letter-spacing: 0.1em;
+      text-transform: lowercase; color: #ffffff; opacity: 0.25;
+      margin-bottom: 28px;
+    }
+    .wrap a.back {
+      font-size: 11px; font-weight: 500; letter-spacing: 0.1em;
+      text-transform: lowercase; color: #ffffff; text-decoration: none;
+      opacity: 0.4; border-bottom: 0.5px solid rgba(255,255,255,0.2);
+      padding-bottom: 2px; transition: opacity 0.2s, color 0.2s, border-color 0.2s;
+    }
+    .wrap a.back:hover { opacity: 1; color: #ff0000; border-bottom-color: #ff0000; }
+  </style>
+
+  <style>
+    @font-face {
+      font-family: 'Apercu Pro';
+      src: url('font/ApercuPro-Medium.woff2') format('woff2'),
+           url('font/ApercuPro-Medium.woff')  format('woff');
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="wrap">
+    <a href="index.html" class="mark">
+      <span class="wordmark-name">Vlad Woodham-Smith</span>
+      <span class="wordmark-sub">cinematographer</span>
+    </a>
+    <p>404 &mdash; page not found</p>
+    <a href="index.html" class="back">&larr; back home</a>
+  </div>
+
+</body>
+</html>

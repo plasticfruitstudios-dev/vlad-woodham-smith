@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Vlad Woodham-Smith is a cinematographer and colourist based in London, working across music videos, commercials and photography. Work for Sam Smith, Audemars Piguet, Jordan Rakei, Jade, Gorgon City and more." />
+  <link rel="canonical" href="https://vladwoodhamsmith.com/moving-image" />
+  <meta property="og:site_name" content="Vlad Woodham-Smith" />
+  <meta property="og:title" content="Vlad Woodham-Smith" />
+  <meta property="og:description" content="Vlad Woodham-Smith is a cinematographer and colourist based in London, working across music videos, commercials and photography. Work for Sam Smith, Audemars Piguet, Jordan Rakei, Jade, Gorgon City and more." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://vladwoodhamsmith.com/moving-image" />
+  <meta property="og:image" content="https://vladwoodhamsmith.com/images/og/sam-smith.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <title>Vlad Woodham-Smith</title>
+  <style>
+    :root { --pfs-overlay: rgba(0,0,0,0.96); }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    .nav-left { display: flex; align-items: center; gap: 28px; min-width: 0; }
+    .wordmark { display: flex; flex-direction: column; gap: 6px; text-decoration: none; }
+    .wordmark-name {
+      font-size: 14px; font-weight: 500; letter-spacing: 0.1em;
+      text-transform: uppercase; color: #ffffff; line-height: 1;
+      transition: color 0.2s; white-space: nowrap;
+    }
+    .wordmark:hover .wordmark-name { color: #ff0000; }
+    .wordmark-sub {
+      font-size: 12px; font-weight: 500; letter-spacing: 0.02em;
+      text-transform: lowercase; color: #ffffff; opacity: 0.45; line-height: 1;
+    }
+    body {
+      background: #000000;
+      min-height: 100vh;
+      font-family: 'Apercu Pro', 'Apercu', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-weight: 500;
+      color: #ffffff;
+      cursor: auto;
+      overflow-x: hidden;
+    }
+    #loader {
+      position: fixed; inset: 0; background: #000000; z-index: 5000;
+      display: flex; align-items: center; justify-content: center; gap: 14px;
+      transition: opacity 0.7s ease;
+    }
+    #loader.hide { opacity: 0; pointer-events: none; }
+    #loader img { width: 40px; height: 40px; object-fit: contain; display: block; }
+    #load-pct {
+      font-size: 12px; font-weight: 500; letter-spacing: 0.08em;
+      color: #ffffff; font-variant-numeric: tabular-nums; min-width: 42px;
+    }
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 24px 100px; background: #000000;
+    }
+    .nav-left { display: flex; align-items: center; gap: 28px; min-width: 0; }
+    .nav-links { display: flex; gap: 44px; list-style: none; margin-right: 12%; } .nav-toggle { display: none; }
+    .nav-links a {
+      font-size: 14px; font-weight: 500; letter-spacing: 0.01em;
+      text-transform: lowercase; color: #ffffff; text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: #ff0000; }
+
+    .projects { padding: 48px 100px 40px; }
+    .row {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      margin-bottom: 48px;
+    }
+    .row.center { justify-content: center; }
+    .row.middle { align-items: center; }
+    .row:last-child { margin-bottom: 60px; }
+    .project-card {
+      display: block; text-decoration: none; color: #ffffff;
+      opacity: 0; transform: translateY(10px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    .project-card.visible { opacity: 1; transform: translateY(0); }
+    .cover { overflow: hidden; }
+    .cover img, .cover video {
+      width: 100%; height: auto; display: block;
+      transition: transform 0.7s cubic-bezier(0.25,0.46,0.45,0.94);
+    }
+    .project-card:hover .cover img, .project-card:hover .cover video { transform: scale(1.03); }
+    .card-text { padding-top: 14px; }
+    .card-title {
+      font-size: 15px; letter-spacing: 0.01em; text-transform: lowercase;
+      transition: color 0.2s;
+    }
+    .project-card:hover .card-title { color: #ff0000; }
+    .card-sub {
+      font-size: 13px; letter-spacing: 0.01em; text-transform: lowercase;
+      opacity: 0.4; margin-top: 3px;
+    }
+    footer {
+      padding: 28px 100px; margin-top: 20px;
+      border-top: 0.5px solid rgba(255,255,255,0.1);
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    footer span { font-size: 11px; font-weight: 500; letter-spacing: 0.01em; text-transform: lowercase; color: #ffffff; opacity: 0.35; }
+    @media (max-width: 900px) {
+      .projects { padding: 40px 40px 30px; }
+      .row { margin-bottom: 80px; }
+      .project-card { margin-top: 0 !important; }
+    }
+    @media (max-width: 640px) {
+      nav { padding: 16px 24px; flex-wrap: wrap; align-items: flex-start; gap: 10px 0; }
+      .nav-left { display: flow-root; flex: 1 1 0; min-width: 0; }      .nav-toggle { display: flex; flex-direction: column; justify-content: center; gap: 5px; width: 28px; height: 28px; padding: 0; margin-top: 2px; margin-left: 24px; background: none; border: 0; color: inherit; cursor: inherit; flex: 0 0 auto; z-index: 4500; }
+      nav.open .nav-toggle { position: fixed; top: 16px; right: 24px; margin: 0; }
+      .nav-toggle .bar { display: block; width: 22px; height: 2px; background: currentColor; transition: transform 0.3s ease, opacity 0.2s ease; }
+      nav.open .nav-toggle .bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+      nav.open .nav-toggle .bar:nth-child(2) { opacity: 0; }
+      nav.open .nav-toggle .bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+      .nav-links {
+        position: fixed; inset: 0; z-index: 4000; margin-right: 0;
+        display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 26px;
+        background: var(--pfs-overlay, rgba(0,0,0,0.96));
+        -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
+        opacity: 0; visibility: hidden; pointer-events: none;
+        transition: opacity 0.35s ease, visibility 0.35s ease;
+      }
+      nav.open .nav-links { opacity: 1; visibility: visible; pointer-events: auto; }
+      .nav-links a { font-size: 20px; }
+      .projects { padding: 24px 24px 20px; }
+      .row { display: block; margin-bottom: 0; }
+      .row .project-card { width: 100% !important; margin: 0 0 44px !important; }
+      footer { padding: 24px 24px; flex-direction: column; gap: 8px; }
+    }
+  </style>
+
+  <style>
+    @font-face {
+      font-family: 'Apercu Pro';
+      src: url('font/ApercuPro-Medium.woff2') format('woff2'),
+           url('font/ApercuPro-Medium.woff')  format('woff');
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
+  </style>
+  <!-- ============================================================ -->
+
+  <style>
+    .switch-pill {
+      position: fixed; bottom: 26px; left: 50%; transform: translateX(-50%);
+      z-index: 950; display: flex; gap: 24px; align-items: center;
+      padding: 13px 26px; border-radius: 999px;
+      background: rgba(10,10,10,0.85);
+      -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+      border: 0.5px solid rgba(255,255,255,0.12);
+    }
+    .switch-pill a {
+      white-space: nowrap;
+      font-size: 12px; font-weight: 500; letter-spacing: 0.04em;
+      text-transform: lowercase; color: #ffffff; opacity: 0.4;
+      text-decoration: none; transition: color 0.2s, opacity 0.2s;
+    }
+    .switch-pill a:hover { opacity: 1; color: #ff0000; }
+    .switch-pill a.active { opacity: 1; }
+    @media (max-width: 640px) {
+      .switch-pill { bottom: 18px; padding: 10px 16px; gap: 13px; }
+      .switch-pill a { font-size: 11px; letter-spacing: 0.02em; }
+    }
+  </style>
+</head>
+<body>
+  <div id="loader"><span id="load-pct">0%</span></div>
+
+  <nav>
+    <div class="nav-left">
+      <a href="index.html" class="wordmark">
+        <span class="wordmark-name">Vlad Woodham-Smith</span>
+        <span class="wordmark-sub">cinematographer</span>
+      </a>
+    </div>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
+    <ul class="nav-links">
+      <li><a href="moving-image.html" class="active">moving image</a></li>
+      <li><a href="stills.html">stills</a></li>
+      <li><a href="colour.html">colour</a></li>
+      <li><a href="info.html">info</a></li>
+    </ul>
+  </nav>
+
+  <div class="projects">
+    <div class="row center">
+      <a class="project-card" href="mi-sam-smith.html" style="width:62%;">
+        <div class="cover"><video src="videos/sam-smith.mp4" autoplay muted loop playsinline preload="auto" aria-label="Sam Smith"></video></div>
+        <div class="card-text"><div class="card-title">sam smith</div><div class="card-sub">to be free (live visuals)</div></div>
+      </a>
+    </div>
+    <div class="row">
+      <a class="project-card" href="mi-audemars-piguet.html" style="width:48%;">
+        <div class="cover"><video src="videos/audemars.mp4" autoplay muted loop playsinline preload="auto" aria-label="Audemars Piguet"></video></div>
+        <div class="card-text"><div class="card-title">audemars piguet</div><div class="card-sub">the time is now</div></div>
+      </a>
+      <a class="project-card" href="jordan-rakei.html" rel="noopener" style="width:44%;margin-top:30px;">
+        <div class="cover"><video src="videos/jordan-cutdown.webm" autoplay muted loop playsinline preload="auto" aria-label="Jordan Rakei"></video></div>
+        <div class="card-text"><div class="card-title">jordan rakei</div><div class="card-sub">live at abbey road</div></div>
+      </a>
+    </div>
+    <div class="row">
+      <a class="project-card" href="the-diamond-store.html" rel="noopener" style="width:46%;">
+        <div class="cover"><video src="videos/diamond-store.mp4" autoplay muted loop playsinline preload="auto" aria-label="The Diamond Store"></video></div>
+        <div class="card-text"><div class="card-title">the diamond store</div><div class="card-sub">seasonal campaigns</div></div>
+      </a>
+      <a class="project-card" href="mi-piri-tommy-dog.html" style="width:48%;margin-top:30px;">
+        <div class="cover"><video src="videos/dog.mp4" autoplay muted loop playsinline preload="auto" aria-label="piri & tommy"></video></div>
+        <div class="card-text"><div class="card-title">piri &amp; tommy</div><div class="card-sub">dog</div></div>
+      </a>
+    </div>
+    <div class="row middle">
+      <a class="project-card" href="mi-gorgon-city.html" style="width:48%;">
+        <div class="cover"><video src="videos/gorgon.mp4" autoplay muted loop playsinline preload="auto" aria-label="Gorgon City, NORTH"></video></div>
+        <div class="card-text"><div class="card-title">gorgon city, north</div><div class="card-sub">breathe you in</div></div>
+      </a>
+      <a class="project-card" href="jade.html" rel="noopener" style="width:27%;margin-right:10%;">
+        <div class="cover"><video src="videos/jade.mp4" autoplay muted loop playsinline preload="auto" aria-label="Jade"></video></div>
+        <div class="card-text"><div class="card-title">jade</div><div class="card-sub">short form series</div></div>
+      </a>
+    </div>
+    <div class="row">
+      <a class="project-card" href="mi-somedays.html" style="width:40%;">
+        <div class="cover"><video src="videos/somedays.mp4" autoplay muted loop playsinline preload="auto" aria-label="Sonny Fodera, Jazzy, D.O.D"></video></div>
+        <div class="card-text"><div class="card-title">sonny fodera, jazzy, d.o.d</div><div class="card-sub">somedays</div></div>
+      </a>
+      <a class="project-card" href="mi-sienna-spiro-maybe.html" style="width:46%;margin-top:28px;">
+        <div class="cover"><video src="videos/sienna-mews.mp4" autoplay muted loop playsinline preload="auto" aria-label="Sienna Spiro"></video></div>
+        <div class="card-text"><div class="card-title">sienna spiro</div><div class="card-sub">maybe. (live from the mews)</div></div>
+      </a>
+    </div>
+    <div class="row center">
+      <a class="project-card" href="mi-girl-group.html" style="width:54%;">
+        <div class="cover"><video src="videos/girl-group.mp4" autoplay muted loop playsinline preload="auto" aria-label="girl group"></video></div>
+        <div class="card-text"><div class="card-title">girl group</div><div class="card-sub">ep live</div></div>
+      </a>
+    </div>
+    <div class="row">
+      <a class="project-card" href="mi-tell-me.html" style="width:42%;">
+        <div class="cover"><video src="videos/tell-me.mp4" autoplay muted loop playsinline preload="auto" aria-label="Sonny Fodera & Clementine Douglas"></video></div>
+        <div class="card-text"><div class="card-title">sonny fodera &amp; clementine douglas</div><div class="card-sub">tell me</div></div>
+      </a>
+      <a class="project-card" href="bea.html" rel="noopener" style="width:44%;margin-top:26px;">
+        <div class="cover"><video src="videos/bea.mp4" autoplay muted loop playsinline preload="auto" aria-label="Bea & Her Business"></video></div>
+        <div class="card-text"><div class="card-title">bea &amp; her business</div><div class="card-sub">ep visuals</div></div>
+      </a>
+    </div>
+  </div>
+
+  <footer>
+    <span>© vlad woodham-smith. 2026.</span>
+  </footer>
+
+  <script>
+    window.revealTagline = () => {};
+
+    // Loader — 0-100% counter tied to real image loading; first site visit per session only
+    const loader = document.getElementById('loader');
+    if (sessionStorage.getItem('vws-visited')) {
+      loader.style.display = 'none';
+      setTimeout(() => window.revealTagline && window.revealTagline(), 300);
+    } else {
+      sessionStorage.setItem('vws-visited', '1');
+      const pctEl = document.getElementById('load-pct');
+      const imgs = Array.from(document.images).filter(im => !loader.contains(im));
+      let loadedCount = 0;
+      imgs.forEach(im => {
+        if (im.complete) loadedCount++;
+        else {
+          im.addEventListener('load', () => loadedCount++);
+          im.addEventListener('error', () => loadedCount++);
+        }
+      });
+      const start = performance.now();
+      const MIN = 1000, MAX = 2800;
+      let shown = 0;
+      function tick(now) {
+        const t = now - start;
+        const real = imgs.length ? loadedCount / imgs.length : 1;
+        const floor = Math.min(t / MAX, 1);
+        const ceil = Math.min(t / MIN, 1);
+        const target = Math.min(Math.max(real, floor), ceil) * 100;
+        shown = Math.min(shown + 3, Math.max(shown, target));
+        pctEl.textContent = Math.floor(shown) + '%';
+        if (shown >= 100) {
+          loader.classList.add('hide');
+          window.revealTagline && window.revealTagline();
+          setTimeout(() => loader.style.display = 'none', 700);
+        } else {
+          requestAnimationFrame(tick);
+        }
+      }
+      requestAnimationFrame(tick);
+    }
+
+    // Staggered reveal
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 60);
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.project-card').forEach(el => obs.observe(el));
+  </script>
+    <a href="https://www.instagram.com/vladws" target="_blank" rel="noopener"
+     id="ig-icon"
+     style="position:fixed;bottom:28px;right:36px;z-index:900;opacity:0.35;transition:opacity 0.2s;line-height:0;"
+     onmouseenter="this.style.opacity='1'" onmouseleave="this.style.opacity='0.35'"
+     aria-label="Instagram">
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="#ffffff"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.791-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+  </a>
+  <script>
+    (function(){
+      var nav = document.querySelector('nav');
+      var btn = nav && nav.querySelector('.nav-toggle');
+      if(!btn) return;
+      btn.addEventListener('click', function(){
+        var open = nav.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+    })();
+  </script>
+  <div class="switch-pill">
+    <a href="index.html">all</a>
+    <a href="moving-image.html" class="active">moving image</a>
+    <a href="stills.html">stills</a>
+    <a href="colour.html">colour</a>
+  </div>
+
+  <script>
+    (function () {
+      const vids = Array.from(document.querySelectorAll('.cover video'));
+      if (!vids.length) return;
+      const io = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          e.target.dataset.vis = e.isIntersecting ? '1' : '0';
+          if (e.isIntersecting) e.target.play().catch(() => {});
+          else e.target.pause();
+        });
+      }, { threshold: 0.1 });
+      vids.forEach(v => io.observe(v));
+      setInterval(() => {
+        if (document.hidden) return;
+        vids.forEach(v => { if (v.dataset.vis === '1' && v.paused) v.play().catch(() => {}); });
+      }, 3000);
+    })();
+  </script>
+</body>
+</html>
