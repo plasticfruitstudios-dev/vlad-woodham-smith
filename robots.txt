@@ -1,4 +1,4 @@
-# plastic fruit studios — retrieval & search welcome, model training opted out
+# vlad woodham-smith — retrieval & search welcome, model training opted out
 
 # default: search engines and everyone not listed below
 User-agent: *
@@ -51,4 +51,4 @@ Disallow: /
 User-agent: meta-externalagent
 Disallow: /
 
-Sitemap: https://plasticfruitstudios.com/sitemap.xml
+Sitemap: https://vladws.com/sitemap.xml
