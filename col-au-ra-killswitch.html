@@ -4,17 +4,17 @@
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Colour grading by Vlad Woodham-Smith — music videos, commercials and live film." />
-  <link rel="canonical" href="https://vladws.com/colour" />
+  <meta name="description" content="Au/Ra — Killswitch. Colour by Vlad Woodham-Smith." />
+  <link rel="canonical" href="https://vladws.com/col-au-ra-killswitch" />
   <meta property="og:site_name" content="Vlad Woodham-Smith" />
-  <meta property="og:title" content="Colour — Vlad Woodham-Smith" />
-  <meta property="og:description" content="Colour grading by Vlad Woodham-Smith — music videos, commercials and live film." />
+  <meta property="og:title" content="Au/Ra, Killswitch — Vlad Woodham-Smith" />
+  <meta property="og:description" content="Au/Ra — Killswitch. Colour by Vlad Woodham-Smith." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://vladws.com/colour" />
-  <meta property="og:image" content="https://vladws.com/images/og/nieve-ella.jpg" />
+  <meta property="og:url" content="https://vladws.com/col-au-ra-killswitch" />
+  <meta property="og:image" content="https://vladws.com/images/og/au-ra-killswitch.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <title>Colour &mdash; Vlad Woodham-Smith</title>
+  <title>Au/Ra, Killswitch &mdash; Vlad Woodham-Smith</title>
   <style>
     :root { --pfs-overlay: rgba(0,0,0,0.96); }
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -31,13 +31,9 @@
       text-transform: lowercase; color: #ffffff; opacity: 0.45; line-height: 1;
     }
     body {
-      background: #000000;
-      min-height: 100vh;
+      background: #000000; min-height: 100vh;
       font-family: 'Apercu Pro', 'Apercu', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      font-weight: 500;
-      color: #ffffff;
-      cursor: auto;
-      overflow-x: hidden;
+      font-weight: 500; color: #ffffff; cursor: auto; overflow-x: hidden;
     }
     #loader {
       position: fixed; inset: 0; background: #000000; z-index: 5000;
@@ -55,7 +51,6 @@
       display: flex; align-items: center; justify-content: space-between;
       padding: 24px 100px; background: #000000;
     }
-    .nav-left { display: flex; align-items: center; gap: 28px; min-width: 0; }
     .nav-links { display: flex; gap: 44px; list-style: none; margin-right: 12%; } .nav-toggle { display: none; }
     .nav-links a {
       font-size: 14px; font-weight: 500; letter-spacing: 0.01em;
@@ -63,69 +58,38 @@
       transition: color 0.2s;
     }
     .nav-links a:hover, .nav-links a.active { color: #ff0000; }
-
-    .projects { padding: 48px 100px 40px; }
-    .row {
-      display: flex; justify-content: space-between; align-items: flex-start;
-      margin-bottom: 48px;
+    .info-wrap {
+      min-height: calc(100vh - 115px - 72px);
+      display: flex; align-items: center;
+      padding: 80px 100px;
     }
-    .row.center { justify-content: center; }
-    .row.middle { align-items: center; }
-    .row:last-child { margin-bottom: 60px; }
-    .project-card {
-      display: block; text-decoration: none; color: #ffffff;
-      opacity: 0; transform: translateY(10px);
-      transition: opacity 0.55s ease, transform 0.55s ease;
+    .info-content {
+      max-width: 500px;
+      opacity: 0; transform: translateY(16px);
+      animation: fadeUp 0.7s ease 0.2s forwards;
     }
-    .project-card.visible { opacity: 1; transform: translateY(0); }
-    .cover { overflow: hidden; }
-    .cover img, .cover video {
-      width: 100%; height: auto; display: block;
-      transition: transform 0.7s cubic-bezier(0.25,0.46,0.45,0.94);
+    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+    .info-content p {
+      font-size: 15px; font-weight: 500; line-height: 1.75;
+      letter-spacing: 0.01em;
+      color: #ffffff; opacity: 0.85; margin-bottom: 36px;
     }
-    .project-card:hover .cover img, .project-card:hover .cover video { transform: scale(1.03); }
-    .card-text { padding-top: 14px; }
-    .card-title {
-      font-size: 15px; letter-spacing: 0.01em; text-transform: lowercase;
-      transition: color 0.2s;
+    .info-content a {
+      font-size: 15px; font-weight: 500; letter-spacing: 0.01em;
+      color: #ffffff; text-decoration: none;
+      opacity: 0.85; transition: opacity 0.2s;
+      border-bottom: 0.5px solid rgba(255,255,255,0.3); padding-bottom: 2px;
     }
-    .project-card:hover .card-title { color: #ff0000; }
-    .card-sub {
-      font-size: 13px; letter-spacing: 0.01em; text-transform: lowercase;
-      opacity: 0.4; margin-top: 3px;
-    }
+    .info-content a:hover { opacity: 1; color: #ff0000; border-bottom-color: #ff0000; }
     footer {
-      padding: 28px 100px; margin-top: 20px;
+      padding: 28px 100px;
       border-top: 0.5px solid rgba(255,255,255,0.1);
       display: flex; justify-content: space-between; align-items: center;
     }
     footer span { font-size: 11px; font-weight: 500; letter-spacing: 0.01em; text-transform: lowercase; color: #ffffff; opacity: 0.35; }
-    @media (max-width: 900px) {
-      .projects { padding: 40px 40px 30px; }
-      .row { margin-bottom: 80px; }
-      .project-card { margin-top: 0 !important; }
-    }
     @media (max-width: 640px) {
       nav { padding: 16px 24px; flex-wrap: wrap; align-items: flex-start; gap: 10px 0; }
-      .nav-left { display: flow-root; flex: 1 1 0; min-width: 0; }      .nav-toggle { display: flex; flex-direction: column; justify-content: center; gap: 5px; width: 28px; height: 28px; padding: 0; margin-top: 2px; margin-left: 24px; background: none; border: 0; color: inherit; cursor: inherit; flex: 0 0 auto; z-index: 4500; }
-      nav.open .nav-toggle { position: fixed; top: 16px; right: 24px; margin: 0; }
-      .nav-toggle .bar { display: block; width: 22px; height: 2px; background: currentColor; transition: transform 0.3s ease, opacity 0.2s ease; }
-      nav.open .nav-toggle .bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-      nav.open .nav-toggle .bar:nth-child(2) { opacity: 0; }
-      nav.open .nav-toggle .bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-      .nav-links {
-        position: fixed; inset: 0; z-index: 4000; margin-right: 0;
-        display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 26px;
-        background: var(--pfs-overlay, rgba(0,0,0,0.96));
-        -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
-        opacity: 0; visibility: hidden; pointer-events: none;
-        transition: opacity 0.35s ease, visibility 0.35s ease;
-      }
-      nav.open .nav-links { opacity: 1; visibility: visible; pointer-events: auto; }
-      .nav-links a { font-size: 20px; }
-      .projects { padding: 24px 24px 20px; }
-      .row { display: block; margin-bottom: 0; }
-      .row .project-card { width: 100% !important; margin: 0 0 44px !important; }
+      .info-wrap { padding: 60px 24px; }
       footer { padding: 24px 24px; flex-direction: column; gap: 8px; }
     }
   </style>
@@ -143,25 +107,81 @@
   <!-- ============================================================ -->
 
   <style>
-    .switch-pill {
-      position: fixed; bottom: 26px; left: 50%; transform: translateX(-50%);
-      z-index: 950; display: flex; gap: 24px; align-items: center;
-      padding: 13px 26px; border-radius: 999px;
-      background: rgba(10,10,10,0.85);
-      -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
-      border: 0.5px solid rgba(255,255,255,0.12);
+    nav { gap: 24px; }
+    .nav-left { display: flex; align-items: center; gap: 28px; min-width: 0; }
+    @media (max-width: 640px) {
+      .nav-left { display: flow-root; flex: 1 1 0; min-width: 0; }      .nav-toggle { display: flex; flex-direction: column; justify-content: center; gap: 5px; width: 28px; height: 28px; padding: 0; margin-top: 2px; margin-left: 24px; background: none; border: 0; color: inherit; cursor: inherit; flex: 0 0 auto; z-index: 4500; }
+      nav.open .nav-toggle { position: fixed; top: 16px; right: 24px; margin: 0; }
+      .nav-toggle .bar { display: block; width: 22px; height: 2px; background: currentColor; transition: transform 0.3s ease, opacity 0.2s ease; }
+      nav.open .nav-toggle .bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+      nav.open .nav-toggle .bar:nth-child(2) { opacity: 0; }
+      nav.open .nav-toggle .bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+      .nav-links {
+        position: fixed; inset: 0; z-index: 4000; margin-right: 0;
+        display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 26px;
+        background: var(--pfs-overlay, rgba(0,0,0,0.96));
+        -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
+        opacity: 0; visibility: hidden; pointer-events: none;
+        transition: opacity 0.35s ease, visibility 0.35s ease;
+      }
+      nav.open .nav-links { opacity: 1; visibility: visible; pointer-events: auto; }
+      .nav-links a { font-size: 20px; }
     }
-    .switch-pill a {
-      white-space: nowrap;
+  </style>
+
+  <style>
+    .project-wrap {
+      display: flex; gap: 64px; align-items: flex-start;
+      padding: 70px 100px 40px;
+      opacity: 0; transform: translateY(12px);
+      animation: fadeUp 0.6s ease 0.1s forwards;
+    }
+    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+    .project-meta { width: 300px; flex-shrink: 0; }
+    .project-meta .artist {
+      font-size: 15px; font-weight: 500; letter-spacing: 0.02em;
+      text-transform: lowercase; color: #ff0000;
+    }
+    .project-meta .title {
+      font-size: 15px; font-weight: 500; letter-spacing: 0.02em;
+      text-transform: lowercase; color: #ffffff; margin-top: 2px;
+    }
+    .project-meta .credits-label {
       font-size: 12px; font-weight: 500; letter-spacing: 0.04em;
-      text-transform: lowercase; color: #ffffff; opacity: 0.4;
+      text-transform: lowercase; color: #ff0000; margin-top: 32px;
+    }
+    .project-meta .credit {
+      font-size: 13px; font-weight: 500; letter-spacing: 0.02em;
+      text-transform: lowercase; color: #ffffff; margin-top: 6px; line-height: 1.5;
+    }
+    .project-meta .credit-day {
+      font-size: 12px; font-weight: 500; letter-spacing: 0.04em;
+      text-transform: lowercase; color: #ff0000; margin-top: 22px;
+    }
+    .project-meta .ext {
+      display: inline-block; margin-top: 32px;
+      font-size: 12px; font-weight: 500; letter-spacing: 0.04em;
+      text-transform: lowercase; color: #ffffff; opacity: 0.45;
       text-decoration: none; transition: color 0.2s, opacity 0.2s;
     }
-    .switch-pill a:hover { opacity: 1; color: #ff0000; }
-    .switch-pill a.active { opacity: 1; }
+    .project-meta .ext:hover { color: #ff0000; opacity: 1; }
+    .player { flex: 1; aspect-ratio: 16 / 9; background: #111111; }
+    .player iframe, .player video { width: 100%; height: 100%; display: block; border: 0; }
+    .back-bottom {
+      display: inline-block; padding: 40px 100px 10px;
+      font-size: 12px; font-weight: 500; letter-spacing: 0.04em;
+      text-transform: lowercase; color: #ffffff; opacity: 0.45;
+      text-decoration: none; transition: color 0.2s, opacity 0.2s;
+    }
+    .back-bottom:hover { color: #ff0000; opacity: 1; }
+    @media (max-width: 900px) {
+      .project-wrap { flex-direction: column-reverse; gap: 28px; padding: 40px 40px 20px; }
+      .project-meta { width: 100%; }
+      .back-bottom { padding: 30px 40px 10px; }
+    }
     @media (max-width: 640px) {
-      .switch-pill { bottom: 18px; padding: 10px 16px; gap: 13px; }
-      .switch-pill a { font-size: 11px; letter-spacing: 0.02em; }
+      .project-wrap { padding: 24px 24px 10px; }
+      .back-bottom { padding: 24px 24px 10px; }
     }
   </style>
 </head>
@@ -184,45 +204,68 @@
     </ul>
   </nav>
 
-  <div class="projects">
-    <div class="row">
-      <a class="project-card" href="col-nieve-ella.html" style="width:54%;">
-        <div class="cover"><video src="videos/nieve-ella.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Nieve Ella"></video></div>
-        <div class="card-text"><div class="card-title">nieve ella</div><div class="card-sub">bite back</div></div>
-      </a>
-      <a class="project-card" href="col-barry-cant-swim.html" style="width:40%;margin-top:60px;">
-        <div class="cover"><video src="videos/barry-cant-swim.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Barry Can't Swim"></video></div>
-        <div class="card-text"><div class="card-title">barry can&#39;t swim</div><div class="card-sub">dj set (brooklyn, nyc)</div></div>
-      </a>
+    <div class="project-wrap">
+    <div class="project-meta">
+      <h1 class="artist">au/ra</h1>
+      <div class="title">killswitch</div>
+      <div class="credits-label">credits</div>
+      <div class="credit">creative direction - au/ra, itgirl.cool</div>
+      <div class="credit-day">day i</div>
+      <div class="credit">director &amp; director of photography - hannah fransson</div>
+      <div class="credit">producer - ella griffith</div>
+      <div class="credit">creative commissioners - joanna szyczewska, coco marinese, abbey malbon</div>
+      <div class="credit">production runner - ella silk</div>
+      <div class="credit">1st ad - harley ruby cameron-furze</div>
+      <div class="credit">2nd ad - yu yat andrew sin</div>
+      <div class="credit">1st ac / focus puller - louis peppiatt</div>
+      <div class="credit">camera trainee - hugo theodorou</div>
+      <div class="credit">gaffer - adam trz</div>
+      <div class="credit">art director - ally andrews</div>
+      <div class="credit">art assistant - loulou mattinson</div>
+      <div class="credit">stylist - luca wowczyna</div>
+      <div class="credit">stylist assistant - tayfun isin</div>
+      <div class="credit">hair, makeup &amp; sfx - mariia usanova</div>
+      <div class="credit">hair &amp; makeup assistant - nicky harrington</div>
+      <div class="credit">makeup assistant - roo gehring</div>
+      <div class="credit">bts photographer - nicole yessimova</div>
+      <div class="credit">choreographer - elettra giunta</div>
+      <div class="credit">editor - luying dong</div>
+      <div class="credit">colour - vladimir woodham-smith</div>
+      <div class="credit">au/ra double - becky tun pe</div>
+      <div class="credit">gatekeeper 1 - yasmin forbes</div>
+      <div class="credit">gatekeeper 2 - jackie ezeuko</div>
+      <div class="credit-day">day ii</div>
+      <div class="credit">director - joanna szyczewska</div>
+      <div class="credit">creative assistants - abbey malbon, coco marinese</div>
+      <div class="credit">producers - itgirl.cool, zoe gunn</div>
+      <div class="credit">pre-production - tara leonard</div>
+      <div class="credit">production assistant - marco pennasilico ventura</div>
+      <div class="credit">director of photography - vladimir woodham-smith</div>
+      <div class="credit">1st ac - inigo woodham-smith</div>
+      <div class="credit">gaffer - sacha peers</div>
+      <div class="credit">makeup - georgia hope</div>
+      <div class="credit">hair - jacqueline ezeuko</div>
+      <div class="credit">bts photographer - laura braithwaite</div>
+      <a class="ext" href="https://vimeo.com/1210143876" target="_blank" rel="noopener">watch on vimeo &#8599;</a>
     </div>
-    <div class="row">
-      <a class="project-card" href="col-au-ra-killswitch.html" style="width:44%;">
-        <div class="cover"><video src="videos/au-ra-killswitch.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Au/Ra Killswitch"></video></div>
-        <div class="card-text"><div class="card-title">au/ra</div><div class="card-sub">killswitch</div></div>
-      </a>
-      <a class="project-card" href="col-yard-act.html" style="width:50%;margin-top:50px;">
-        <div class="cover"><video src="videos/yard-act.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Yard Act"></video></div>
-        <div class="card-text"><div class="card-title">yard act</div><div class="card-sub">a vineyard for the north (live from utopia)</div></div>
-      </a>
-    </div>
+    <div class="player" style="aspect-ratio: 4 / 3;"><iframe src="https://player.vimeo.com/video/1210143876?h=cc7413c63a&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Au.Ra - Killswitch"></iframe></div>
   </div>
+
+  <a class="back-bottom" href="colour.html">&larr; back</a>
 
   <footer>
     <span>© vlad woodham-smith. 2026.</span>
   </footer>
 
   <script>
-    window.revealTagline = () => {};
-
-    // Loader — 0-100% counter tied to real image loading; first site visit per session only
-    const loader = document.getElementById('loader');
+    const l = document.getElementById('loader');
     if (sessionStorage.getItem('vws-visited')) {
-      loader.style.display = 'none';
+      l.style.display = 'none';
       setTimeout(() => window.revealTagline && window.revealTagline(), 300);
     } else {
       sessionStorage.setItem('vws-visited', '1');
       const pctEl = document.getElementById('load-pct');
-      const imgs = Array.from(document.images).filter(im => !loader.contains(im));
+      const imgs = Array.from(document.images).filter(im => !l.contains(im));
       let loadedCount = 0;
       imgs.forEach(im => {
         if (im.complete) loadedCount++;
@@ -243,26 +286,15 @@
         shown = Math.min(shown + 3, Math.max(shown, target));
         pctEl.textContent = Math.floor(shown) + '%';
         if (shown >= 100) {
-          loader.classList.add('hide');
+          l.classList.add('hide');
           window.revealTagline && window.revealTagline();
-          setTimeout(() => loader.style.display = 'none', 700);
+          setTimeout(() => l.style.display = 'none', 700);
         } else {
           requestAnimationFrame(tick);
         }
       }
       requestAnimationFrame(tick);
     }
-
-    // Staggered reveal
-    const obs = new IntersectionObserver((entries) => {
-      entries.forEach((entry, i) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => entry.target.classList.add('visible'), i * 60);
-          obs.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1 });
-    document.querySelectorAll('.project-card').forEach(el => obs.observe(el));
   </script>
     <a href="https://www.instagram.com/vladws" target="_blank" rel="noopener"
      id="ig-icon"
@@ -271,6 +303,9 @@
      aria-label="Instagram">
     <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="#ffffff"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.791-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
   </a>
+  <script>
+    window.revealTagline = () => {};
+  </script>
   <script>
     (function(){
       var nav = document.querySelector('nav');
@@ -282,30 +317,6 @@
       });
     })();
   </script>
-  <div class="switch-pill">
-    <a href="index.html">all</a>
-    <a href="moving-image.html">moving image</a>
-    <a href="stills.html">stills</a>
-    <a href="colour.html" class="active">colour</a>
-  </div>
-
-  <script>
-    (function () {
-      const vids = Array.from(document.querySelectorAll('.cover video'));
-      if (!vids.length) return;
-      const io = new IntersectionObserver(entries => {
-        entries.forEach(e => {
-          e.target.dataset.vis = e.isIntersecting ? '1' : '0';
-          if (e.isIntersecting) e.target.play().catch(() => {});
-          else e.target.pause();
-        });
-      }, { threshold: 0.1 });
-      vids.forEach(v => io.observe(v));
-      setInterval(() => {
-        if (document.hidden) return;
-        vids.forEach(v => { if (v.dataset.vis === '1' && v.paused) v.play().catch(() => {}); });
-      }, 3000);
-    })();
-  </script>
+  <script src="https://player.vimeo.com/api/player.js"></script>
 </body>
 </html>
