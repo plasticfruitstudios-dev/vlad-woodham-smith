@@ -126,6 +126,39 @@
       const inner = document.body.cloneNode(true);
       inner.querySelectorAll('script').forEach((s) => s.remove());
       inner.querySelectorAll('[id]').forEach((el) => el.removeAttribute('id'));
+      // media must hold still inside the ghost: a cloned <video> restarts at a
+      // different frame and a cloned iframe reloads its whole player, both
+      // visible while the ghost is up. Videos become a snapshot of their current
+      // frame (or their poster); iframes become an empty box of the same size so
+      // the player's poster background shows through.
+      const liveMedia = Array.from(document.body.querySelectorAll('video, iframe'));
+      Array.from(inner.querySelectorAll('video, iframe')).forEach((node, i) => {
+        const live = liveMedia[i];
+        if (!live) return;
+        const r = live.getBoundingClientRect();
+        const cs = getComputedStyle(live);
+        const box = 'display:block;position:' + cs.position + ';top:' + cs.top + ';left:' + cs.left
+          + ';width:' + r.width + 'px;height:' + r.height + 'px;';
+        let still;
+        if (live.tagName === 'VIDEO' && live.readyState >= 2 && live.videoWidth) {
+          still = document.createElement('canvas');
+          still.width = live.videoWidth; still.height = live.videoHeight;
+          try { still.getContext('2d').drawImage(live, 0, 0); } catch (err) { /* keep blank */ }
+        } else if (live.tagName === 'VIDEO' && live.getAttribute('poster')) {
+          still = document.createElement('img');
+          still.src = live.getAttribute('poster');
+          still.style.objectFit = 'cover';
+        } else {
+          still = document.createElement('div');
+        }
+        still.className = node.className;
+        still.style.cssText += box;
+        node.replaceWith(still);
+      });
+      // the sticky nav has no scroll container inside the ghost: pin it to the
+      // top of the viewport the way the live page shows it
+      const ghostNav = inner.querySelector('nav');
+      if (ghostNav) ghostNav.style.cssText += ';position:relative;top:' + window.scrollY + 'px';
       inner.style.cssText = 'position:absolute;left:0;top:' + (-window.scrollY) + 'px;width:100%;margin:0';
       shadow.appendChild(inner);
       dissolveShot = wrap;
