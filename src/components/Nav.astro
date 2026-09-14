@@ -1,0 +1,17 @@
+---
+interface Props { active?: 'index' | 'moving-image' | 'stills' | 'colour' | 'info' | null }
+const { active = null } = Astro.props;
+const cls = (k: string) => (active === k ? 'active' : undefined);
+---
+<nav>
+  <div class="nav-left">
+    <a href="/" class="wordmark"><span class="wordmark-name">Vlad Woodham-Smith</span><span class="wordmark-sub">cinematographer</span></a>
+  </div>
+  <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
+  <ul class="nav-links">
+    <li><a href="/moving-image" class={cls('moving-image')}>moving image</a></li>
+    <li><a href="/stills" class={cls('stills')}>stills</a></li>
+    <li><a href="/colour" class={cls('colour')}>colour</a></li>
+    <li><a href="/info" class={cls('info')}>info</a></li>
+  </ul>
+</nav>

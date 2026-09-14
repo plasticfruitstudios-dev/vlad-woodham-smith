@@ -1,0 +1,26 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import GridCard from '../components/GridCard.astro';
+import SwitchPill from '../components/SwitchPill.astro';
+import GridReveal from '../components/GridReveal.astro';
+import grid from '../data/grid-moving-image.json';
+import { DEFAULT_DESCRIPTION } from '../lib/site.js';
+import '../styles/grid.css';
+
+const projects = await getCollection('projects');
+const bySlug = Object.fromEntries(projects.map((p) => [p.id, p.data]));
+---
+<Base title="Moving Image — Vlad Woodham-Smith" description={DEFAULT_DESCRIPTION} path="moving-image"
+      ogImage="images/og/sam-smith.jpg" active="moving-image">
+  <h1 class="sr-only">Moving image — music videos, commercials &amp; films shot by Vlad Woodham-Smith</h1>
+  <div class="projects">
+    {grid.rows.map((row) => (
+      <div class={row.class ?? "row"}>
+        {row.cards.map((card) => <GridCard card={card} project={bySlug[card.slug]} />)}
+      </div>
+    ))}
+  </div>
+  <GridReveal slot="after-scripts" />
+  <SwitchPill active="moving-image" slot="after-scripts" />
+</Base>

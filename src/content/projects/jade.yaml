@@ -1,0 +1,41 @@
+title: jade
+subtitle: short form series
+kind: player
+pageTitle: Jade — Vlad Woodham-Smith
+description: Vlad Woodham-Smith is a cinematographer based in London, working across music videos, commercials and photography. Work for Sam Smith, Audemars Piguet, Jordan Rakei, Jade, Gorgon City and more.
+ogImage: images/og/jade.jpg
+credits:
+  - text: director - jessica clover belgrave
+  - text: director of photography - vladimir woodham-smith
+  - text: 1st ac - inigo woodham-smith
+  - text: label - rca records, sony music
+  - text: studio - monolith studios
+media:
+  - type: video
+    src: videos/jade.mp4
+    poster: videos/posters/jade.jpg
+    klass: media portrait
+  - type: video
+    src: videos/jade-projection.mp4
+    poster: videos/posters/jade-projection.jpg
+    klass: media portrait
+  - type: video
+    src: videos/jade-candle.mp4
+    poster: videos/posters/jade-candle.jpg
+    klass: media portrait
+  - type: video
+    src: videos/jade-two-jades.mp4
+    poster: videos/posters/jade-two-jades.jpg
+    klass: media portrait
+  - type: video
+    src: videos/jade-blue.mp4
+    poster: videos/posters/jade-blue.jpg
+    klass: media portrait
+  - type: video
+    src: videos/jade-mirror.mp4
+    poster: videos/posters/jade-mirror.jpg
+    klass: media portrait
+  - type: video
+    src: videos/jade-box.mp4
+    poster: videos/posters/jade-box.jpg
+    klass: media portrait

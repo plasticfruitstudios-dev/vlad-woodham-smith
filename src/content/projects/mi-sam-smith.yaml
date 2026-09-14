@@ -1,0 +1,35 @@
+title: sam smith
+subtitle: to be free (live visuals)
+kind: film
+pageTitle: Sam Smith — Vlad Woodham-Smith
+description: Vlad Woodham-Smith is a cinematographer based in London, working across music videos, commercials and photography. Work for Sam Smith, Audemars Piguet, Jordan Rakei, Jade, Gorgon City and more.
+ogImage: images/og/sam-smith.jpg
+credits:
+  - text: director - jessica clover belgrave
+  - text: director of photography - vladimir woodham-smith
+  - text: producer - rhory danniells
+  - text: production assistant - ciaran k. walker
+  - text: 1st ac - samuel harding
+  - text: lighting - inigo woodham-smith
+  - text: grade - vladimir woodham-smith
+  - text: production company - intergalactic studios
+  - text: label - andrew bunton, universal music uk
+vimeo:
+  id: "1174144832"
+  aspect: 4 / 3
+  title: Sam Smith - To Be Free (Performance Visual One)
+  query: title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479
+ext:
+  href: https://www.instagram.com/p/DQ7DkjKDPG2/
+  label: view on instagram
+media:
+  - type: iframe
+    src: https://player.vimeo.com/video/1174145687?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479
+    klass: player
+    style: "aspect-ratio: 4 / 3;"
+    title: Sam Smith - To Be Free (Performance Visual Two)
+  - type: iframe
+    src: https://player.vimeo.com/video/1174146169?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479
+    klass: player
+    style: "aspect-ratio: 4 / 3;"
+    title: Sam Smith - To Be Free (Performance Visual Three)

@@ -1,0 +1,17 @@
+---
+// A film page's main player: a Vimeo embed (revealed by FilmScript once the
+// Player API reports ready) or another embed such as YouTube, which has no
+// Player API and so is marked ready up front.
+interface Props {
+  slug: string;
+  posterBg: string;
+  vimeo?: { id: string; aspect: string; title: string; query: string };
+  embed?: { src: string; aspect: string; title: string };
+}
+const { slug, posterBg, vimeo, embed } = Astro.props;
+---
+{vimeo ? (
+  <div class="player" transition:name={'cover-' + slug} style={`aspect-ratio: ${vimeo.aspect};${posterBg}`}><iframe src={`https://player.vimeo.com/video/${vimeo.id}?${vimeo.query}`} frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title={vimeo.title}></iframe></div>
+) : (
+  <div class="player" transition:name={'cover-' + slug} style={`aspect-ratio: ${embed!.aspect};${posterBg}`}><iframe class="ready" src={embed!.src} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen title={embed!.title}></iframe></div>
+)}

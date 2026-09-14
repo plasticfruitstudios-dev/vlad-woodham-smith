@@ -1,0 +1,224 @@
+/* Shared core factored from the identical rules across all legacy page families. */
+
+:root {
+  --pfs-overlay: rgba(0,0,0,0.96);
+  --bg: #000000;
+  --accent: #ff0000;
+  /* quiet placeholder behind still-loading imagery */
+  --plate: #111111;
+  color-scheme: dark;
+}
+
+* {
+  margin: 0; padding: 0; box-sizing: border-box;
+}
+
+body {
+  background: var(--bg);
+      min-height: 100vh;
+      font-family: 'Apercu Pro', 'Apercu', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-weight: 500;
+      color: #ffffff;
+      cursor: auto;
+      overflow-x: hidden;
+}
+
+#loader {
+  position: fixed; inset: 0; background: var(--bg); z-index: 5000;
+      display: flex; align-items: center; justify-content: center; gap: 14px;
+      transition: opacity 0.7s ease;
+}
+
+#loader.hide {
+  opacity: 0; pointer-events: none;
+}
+
+#load-pct {
+  font-size: 12px; font-weight: 500; letter-spacing: 0.08em;
+      color: #ffffff; font-variant-numeric: tabular-nums; min-width: 42px;
+}
+
+nav {
+  position: sticky; top: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 24px 100px; background: var(--bg);
+}
+
+.nav-left {
+  display: flex; align-items: center; gap: 28px; min-width: 0;
+}
+
+.wordmark {
+  display: flex; flex-direction: column; gap: 6px; text-decoration: none;
+}
+
+.wordmark-name {
+  font-size: 14px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+      color: #ffffff; line-height: 1; transition: color 0.2s; white-space: nowrap;
+}
+
+.wordmark:hover .wordmark-name {
+  color: var(--accent);
+}
+
+.wordmark-sub {
+  font-size: 12px; font-weight: 500; letter-spacing: 0.02em; text-transform: lowercase;
+      color: #ffffff; opacity: 0.55; line-height: 1;
+}
+
+.nav-links {
+  display: flex; gap: 44px; list-style: none; margin-right: 12%;
+}
+
+.nav-toggle {
+  display: none;
+}
+
+.nav-links a {
+  font-size: 14px; font-weight: 500; letter-spacing: 0.01em;
+      text-transform: lowercase; color: #ffffff; text-decoration: none;
+      transition: color 0.2s;
+}
+
+.nav-links a:hover, .nav-links a.active {
+  color: var(--accent);
+}
+
+footer span {
+  font-size: 11px; font-weight: 500; letter-spacing: 0.01em; text-transform: lowercase; color: #ffffff; opacity: 0.55;
+}
+
+@font-face {
+  font-family: 'Apercu Pro';
+      src: url('/font/ApercuPro-Medium.woff2') format('woff2'),
+           url('/font/ApercuPro-Medium.woff')  format('woff');
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+}
+
+
+html { scrollbar-gutter: stable; }
+
+/* ---- accessibility layer (2026-08 audit) ---- */
+a:focus-visible, button:focus-visible {
+  outline: 2px solid #ffffff; outline-offset: 3px;
+}
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+.skip-link {
+  position: absolute; left: 16px; top: -100px; z-index: 6000;
+  background: var(--bg); color: #ffffff; padding: 10px 16px; font-size: 13px;
+  text-decoration: none; border: 1px solid #ffffff;
+}
+.skip-link:focus { top: 16px; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .project-card, .reveal { opacity: 1 !important; transform: none !important; }
+}
+
+/* Mobile nav — canonical single copy. Lives at the END of global.css so the
+   cascade beats the base rules above regardless of how Vite orders the
+   per-family stylesheets (the ordering bug that hid the hamburger on /info). */
+@media (max-width: 640px) {
+  nav { padding: 16px 24px; flex-wrap: wrap; align-items: flex-start; gap: 10px 0; }
+  .nav-left { display: flow-root; flex: 1 1 0; min-width: 0; }
+  .nav-toggle { display: flex; flex-direction: column; justify-content: center; gap: 5px; width: 28px; height: 28px; padding: 0; margin-top: 2px; margin-left: 24px; background: none; border: 0; color: inherit; cursor: inherit; flex: 0 0 auto; z-index: 4500; }
+  nav.open .nav-toggle { position: fixed; top: 16px; right: 24px; margin: 0; }
+  .nav-toggle .bar { display: block; width: 22px; height: 2px; background: currentColor; transition: transform 0.3s ease, opacity 0.2s ease; }
+  nav.open .nav-toggle .bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  nav.open .nav-toggle .bar:nth-child(2) { opacity: 0; }
+  nav.open .nav-toggle .bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .nav-links { position: fixed; inset: 0; z-index: 4000; margin-right: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 26px; background: var(--pfs-overlay, rgba(0,0,0,0.96)); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); opacity: 0; visibility: hidden; pointer-events: none; transition: opacity 0.35s ease, visibility 0.35s ease; }
+  nav.open .nav-links { opacity: 1; visibility: visible; pointer-events: auto; }
+  .nav-links a { font-size: 20px; }
+}
+
+/* soft (view-transition) navigations: the morph is the entrance */
+html.soft-nav .project-wrap,
+html.soft-nav .strip-wrap,
+html.soft-nav .project-content,
+html.soft-nav .info-content {
+  animation: none !important;
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* the loader overlay is a first-visit device; scripts hide it only after the
+   first paint, so on soft navigations it must never paint at all */
+html.soft-nav #loader { display: none !important; }
+
+/* grid cards are revealed by JS after paint — on soft
+   navigations they must be visible from the first frame */
+html.soft-nav .project-card,
+html.soft-nav .reveal {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* while the PhotoSwipe lightbox is open: black behind everything, no
+   background scroll, no white rubber-band edges on iOS */
+html.pswp-on { background: #000; overscroll-behavior: none; }
+html.pswp-on body { overflow: hidden; }
+
+/* ---- lights down while a film plays ----
+   transitions live ONLY inside the lit-down state: dimming animates in, but
+   lights-up (incl. at navigation) is instant — a lingering 0.8s body
+   transition was painting mid-fade frames into view-transition snapshots */
+html.lights-down body { background: #000000; transition: background 0.8s ease; }
+html.lights-down nav, html.lights-down .project-meta, html.lights-down footer,
+html.lights-down .back-bottom, html.lights-down #ig-icon { transition: opacity 0.8s ease; }
+html.lights-down nav,
+html.lights-down .project-meta,
+html.lights-down footer,
+html.lights-down .back-bottom,
+html.lights-down #ig-icon { opacity: 0.1; }
+html.lights-down .project-meta:hover,
+html.lights-down nav:hover { opacity: 1; }
+
+
+
+/* ---- copied-email toast ---- */
+.pfs-toast {
+  position: fixed; bottom: 32px; left: 50%; translate: -50% 8px;
+  background: #ffffff; color: #000000;
+  font-size: 12px; letter-spacing: 0.03em; text-transform: lowercase;
+  padding: 10px 18px; border-radius: 999px;
+  opacity: 0; transition: opacity 0.3s ease, translate 0.3s ease;
+  z-index: 7000; pointer-events: none;
+}
+.pfs-toast.in { opacity: 1; translate: -50% 0; }
+
+/* ---- lightbox caption ---- */
+.pswp__pfs-caption {
+  position: absolute; left: 24px; bottom: 20px;
+  color: #fff; opacity: 0.75;
+  font-size: 12px; letter-spacing: 0.02em; text-transform: lowercase;
+  max-width: 60%;
+}
+
+/* ---- loading imagery: a quiet plate + fade-in instead of a white pop ---- */
+.cover, .strip-img { background: var(--plate); }
+.cover img, .cover video, .strip-img img { transition: opacity 0.45s ease; }
+.cover img[data-loading], .strip-img img[data-loading] { opacity: 0; }
+
+/* consistent view-transition timing (groups otherwise run at the UA default) */
+::view-transition-group(*) {
+  animation-duration: 200ms;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* the film player's Vimeo iframe stays invisible over the poster until the
+   player has actually painted (FilmScript adds .ready) */
+.player iframe { opacity: 0; transition: opacity 0.3s ease; }
+.player iframe.ready { opacity: 1; }

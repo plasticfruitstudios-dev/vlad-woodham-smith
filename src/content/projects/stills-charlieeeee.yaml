@@ -1,0 +1,21 @@
+title: charlieeeee
+subtitle: press shoot
+kind: strip
+pageTitle: Charlieeeee — Vlad Woodham-Smith
+description: Vlad Woodham-Smith is a cinematographer based in London, working across music videos, commercials and photography. Work for Sam Smith, Audemars Piguet, Jordan Rakei, Jade, Gorgon City and more.
+ogImage: stills/web/charlieeeee_3-large.jpg
+credits:
+  - text: photography - plastic fruit studios
+media:
+  - type: image
+    src: stills/web/charlieeeee_3-large.jpg
+    alt: charlieeeee — press shoot
+    loading: eager
+  - type: image
+    src: stills/web/charlieeeee_1-large.jpg
+    alt: charlieeeee — press shoot
+    loading: eager
+  - type: image
+    src: stills/web/charlieeeee_2-large.jpg
+    alt: charlieeeee — press shoot
+    loading: eager

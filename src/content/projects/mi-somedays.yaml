@@ -1,0 +1,28 @@
+title: sonny fodera, jazzy, d.o.d
+subtitle: somedays
+kind: film
+pageTitle: Sonny Fodera, Jazzy, D.O.D — Vlad Woodham-Smith
+description: Vlad Woodham-Smith is a cinematographer based in London, working across music videos, commercials and photography. Work for Sam Smith, Audemars Piguet, Jordan Rakei, Jade, Gorgon City and more.
+ogImage: images/og/somedays.jpg
+credits:
+  - text: director - jessica clover belgrave
+  - text: director of photography - vladimir woodham-smith
+  - text: 1st ac - inigo woodham-smith
+  - text: producer - chloe howl
+  - text: production assistant - meera
+  - text: hair & makeup - gracie jai cox
+  - text: styling - cara hayward
+  - text: driver - harvey eales
+  - text: colour - vladimir woodham-smith
+  - text: production company - plastic fruit studios
+  - text: sonny management - palm artists
+  - text: jazzy management - attention management
+  - text: label - solotoko
+vimeo:
+  id: "1209331427"
+  aspect: 4 / 3
+  title: Sonny Fodera, Jazzy, D.O.D - Somedays
+  query: title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479
+ext:
+  href: https://youtube.com/watch?v=dX8orLrVwtY
+  label: watch on youtube

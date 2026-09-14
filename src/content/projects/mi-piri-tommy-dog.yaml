@@ -1,0 +1,29 @@
+title: piri & tommy
+subtitle: dog
+kind: film
+pageTitle: Piri & Tommy — Vlad Woodham-Smith
+description: Vlad Woodham-Smith is a cinematographer based in London, working across music videos, commercials and photography. Work for Sam Smith, Audemars Piguet, Jordan Rakei, Jade, Gorgon City and more.
+ogImage: images/og/dog.jpg
+credits:
+  - text: starring - kipper von spot, maisy dewey, maisi, lucy tun, sacha peers, inigo woodham-smith
+  - text: director - jessica clover belgrave, piri & tommy
+    gap: true
+  - text: director of photography - vladimir woodham-smith
+  - text: producer - chloe howl
+  - text: production designer - jade rache
+  - text: art assistant - morris p. industry
+  - text: 1st ac - inigo woodham-smith
+  - text: 2nd ac - sacha peers
+  - text: makeup - wendy turner
+  - text: styling - phoebe butterworth
+  - text: colour - vladimir woodham-smith
+  - text: production company - plastic fruit studios
+  - text: management - listen generously
+vimeo:
+  id: "1209331307"
+  aspect: 4 / 3
+  title: piri & tommy - dog
+  query: title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479
+ext:
+  href: https://www.youtube.com/watch?v=5LNlBIg4g3I
+  label: watch on youtube

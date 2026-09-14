@@ -1,0 +1,11 @@
+---
+interface Props { active: 'all' | 'moving-image' | 'stills' | 'colour' }
+const { active } = Astro.props;
+const cls = (k: string) => (active === k ? 'active' : undefined);
+---
+<div class="switch-pill">
+  <a href="/" class={cls('all')}>all</a>
+  <a href="/moving-image" class={cls('moving-image')}>moving image</a>
+  <a href="/stills" class={cls('stills')}>stills</a>
+  <a href="/colour" class={cls('colour')}>colour</a>
+</div>

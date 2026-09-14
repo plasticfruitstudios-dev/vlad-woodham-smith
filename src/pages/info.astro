@@ -1,0 +1,44 @@
+---
+import Base from '../layouts/Base.astro';
+import { DEFAULT_DESCRIPTION, PERSON, PFS } from '../lib/site.js';
+import '../styles/info.css';
+---
+<Base title="Info — Vlad Woodham-Smith" description={DEFAULT_DESCRIPTION} path="info"
+      ogImage="stills/web/ally-salort_cover-large.jpg" jsonld={PERSON} active="info">
+  <h1 class="sr-only">Info — Vlad Woodham-Smith, cinematographer</h1>
+
+  <div class="info-wrap">
+    <div class="info-content">
+      <p>Vlad Woodham-Smith is a South London-born cinematographer based in North London, working across music videos, commercials and photography.<br><br>With a background in music, he developed his visual approach through artist projects before moving into film.</p>
+      <a href="#" id="contact-email" aria-label="email">&#8203;</a>
+      <a class="pfs-link" href={PFS.url} target="_blank" rel="noopener" aria-label="Plastic Fruit Studios"><img src="/pfs-logo.webp" alt="Plastic Fruit Studios" width="200" height="200" /></a>
+    </div>
+  </div>
+
+  <script is:inline data-astro-rerun slot="after-scripts">
+    (function () {
+      var u = 'vlad', d = 'plasticfruitstudios' + '.' + 'com';
+      var a = document.getElementById('contact-email');
+      if (!a || a.dataset.bound) return;
+      a.dataset.bound = '1';
+      var email = u + '@' + d;
+      a.textContent = email;
+      a.href = 'mailto:' + email;
+      a.addEventListener('click', function (e) {
+        if (!navigator.clipboard) return; // no clipboard API -> normal mailto
+        e.preventDefault();
+        navigator.clipboard.writeText(email).then(function () {
+          var toast = document.createElement('div');
+          toast.className = 'pfs-toast';
+          toast.textContent = 'email copied';
+          document.body.appendChild(toast);
+          requestAnimationFrame(function () { toast.classList.add('in'); });
+          setTimeout(function () {
+            toast.classList.remove('in');
+            setTimeout(function () { toast.remove(); }, 400);
+          }, 1600);
+        }).catch(function () { location.href = 'mailto:' + email; });
+      });
+    })();
+  </script>
+</Base>

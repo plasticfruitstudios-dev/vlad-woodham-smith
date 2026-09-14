@@ -1,0 +1,13 @@
+title: cat burns
+subtitle: "people pleaser : sleep at night ep cover"
+kind: strip
+pageTitle: Cat Burns — Vlad Woodham-Smith
+description: Vlad Woodham-Smith is a cinematographer based in London, working across music videos, commercials and photography. Work for Sam Smith, Audemars Piguet, Jordan Rakei, Jade, Gorgon City and more.
+ogImage: stills/web/cat-burns-ep-cover-large.jpg
+credits:
+  - text: photography - plastic fruit studios
+media:
+  - type: image
+    src: stills/web/cat-burns-ep-cover-large.jpg
+    alt: "cat burns — people pleaser : sleep at night ep cover"
+    loading: eager

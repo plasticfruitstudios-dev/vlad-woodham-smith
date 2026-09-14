@@ -1,0 +1,60 @@
+{
+  "rows": [
+    {
+      "cards": [
+        {
+          "slug": "col-nieve-ella",
+          "style": "width:54%;",
+          "media": {
+            "type": "video",
+            "src": "videos/nieve-ella.mp4",
+            "poster": "videos/posters/nieve-ella.jpg",
+            "alt": "Nieve Ella"
+          },
+          "titleOverride": "nieve ella",
+          "subOverride": "bite back"
+        },
+        {
+          "slug": "col-barry-cant-swim",
+          "style": "width:40%;margin-top:60px;",
+          "media": {
+            "type": "video",
+            "src": "videos/barry-cant-swim.mp4",
+            "poster": "videos/posters/barry-cant-swim.jpg",
+            "alt": "Barry Can't Swim"
+          },
+          "titleOverride": "barry can't swim",
+          "subOverride": "dj set (brooklyn, nyc)"
+        }
+      ]
+    },
+    {
+      "cards": [
+        {
+          "slug": "col-au-ra-killswitch",
+          "style": "width:44%;",
+          "media": {
+            "type": "video",
+            "src": "videos/au-ra-killswitch.mp4",
+            "poster": "videos/posters/au-ra-killswitch.jpg",
+            "alt": "Au/Ra Killswitch"
+          },
+          "titleOverride": "au/ra",
+          "subOverride": "killswitch"
+        },
+        {
+          "slug": "col-yard-act",
+          "style": "width:50%;margin-top:50px;",
+          "media": {
+            "type": "video",
+            "src": "videos/yard-act.mp4",
+            "poster": "videos/posters/yard-act.jpg",
+            "alt": "Yard Act"
+          },
+          "titleOverride": "yard act",
+          "subOverride": "a vineyard for the north (live from utopia)"
+        }
+      ]
+    }
+  ]
+}

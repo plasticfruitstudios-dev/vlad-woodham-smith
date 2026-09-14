@@ -1,0 +1,39 @@
+title: audemars piguet
+subtitle: the time is now
+kind: film
+pageTitle: Audemars Piguet — Vlad Woodham-Smith
+description: Vlad Woodham-Smith is a cinematographer based in London, working across music videos, commercials and photography. Work for Sam Smith, Audemars Piguet, Jordan Rakei, Jade, Gorgon City and more.
+ogImage: images/og/audemars.jpg
+credits:
+  - text: starring - sienna spiro, maya delilah & aidan
+  - text: director - jessica clover belgrave
+    gap: true
+  - text: director of photography - vladimir woodham-smith
+  - text: senior producer - verity snow
+  - text: production assistant - jared kline boo
+  - text: 16mm camera operator - samuel harding
+  - text: steadicam - krystian winszewski
+  - text: a camera 1st ac - chelsea bernard
+  - text: b camera 1st ac - jon wfw
+  - text: vhs camera operator - inigo woodham-smith
+  - text: gaffer - kenneth liew
+  - text: sound - nikos nikolalaios
+  - text: sound mixer - james lyme
+  - text: hair & makeup - ella carter-allen
+  - text: hair & makeup - daisy holub
+  - text: runner - ellie sharville
+  - text: editor - charlie france
+  - text: editor - tom hawney
+  - text: editor - plastic fruit studios
+  - text: hero film music - plastic fruit studios
+  - text: colour - plastic fruit studios
+  - text: agency - amplify
+  - text: lab - kodak shoot film
+vimeo:
+  id: "1037862617"
+  aspect: 4 / 3
+  title: AP - T T I N
+  query: title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479
+ext:
+  href: https://vimeo.com/1037862617
+  label: watch on vimeo

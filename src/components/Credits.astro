@@ -1,0 +1,9 @@
+---
+// `day` lines are sub-headings inside a credit list (e.g. a two-day shoot)
+interface Props { credits: { text: string; gap?: boolean; day?: boolean }[] }
+const { credits } = Astro.props;
+---
+{credits.length > 0 && <div class="credits-label">credits</div>}
+{credits.map(c => c.day
+  ? <div class="credit-day">{c.text}</div>
+  : <div class="credit" style={c.gap ? 'margin-top:20px;' : undefined}>{c.text}</div>)}

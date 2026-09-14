@@ -1,0 +1,29 @@
+title: piri & tommy
+subtitle: press shoot
+kind: strip
+pageTitle: Piri & Tommy — Vlad Woodham-Smith
+description: Vlad Woodham-Smith is a cinematographer based in London, working across music videos, commercials and photography. Work for Sam Smith, Audemars Piguet, Jordan Rakei, Jade, Gorgon City and more.
+ogImage: stills/web/piri-tommy-yoyo_4-large.jpg
+credits:
+  - text: photography - plastic fruit studios
+media:
+  - type: image
+    src: stills/web/piri-tommy-yoyo_4-large.jpg
+    alt: piri & tommy — press shoot
+    loading: eager
+  - type: image
+    src: stills/web/piri-tommy-yoyo_2-large.jpg
+    alt: piri & tommy — press shoot
+    loading: eager
+  - type: image
+    src: stills/web/piri-tommy-yoyo_3-large.jpg
+    alt: piri & tommy — press shoot
+    loading: eager
+  - type: image
+    src: stills/web/piri-tommy-yoyo_6-large.jpg
+    alt: piri & tommy — press shoot
+    loading: lazy
+  - type: image
+    src: stills/web/piri-tommy-yoyo_1-large.jpg
+    alt: piri & tommy — press shoot
+    loading: lazy

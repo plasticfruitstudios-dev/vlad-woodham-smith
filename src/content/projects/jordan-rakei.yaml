@@ -1,0 +1,41 @@
+title: jordan rakei
+subtitle: live at abbey road
+kind: player
+pageTitle: Jordan Rakei — Vlad Woodham-Smith
+description: Vlad Woodham-Smith is a cinematographer based in London, working across music videos, commercials and photography. Work for Sam Smith, Audemars Piguet, Jordan Rakei, Jade, Gorgon City and more.
+ogImage: images/og/jordan-rakei.jpg
+credits:
+  - text: director / editor - dylan friese-greene
+  - text: producer - tom ringsby
+  - text: creative director - chloe anderson
+  - text: director of photography - vladimir woodham-smith
+  - text: 1st ac - inigo woodham-smith
+  - text: steadicam - krystian winszewski
+  - text: focus puller - jon wetherall
+  - text: 2nd camera operator - george hasbury
+  - text: colour - vladimir woodham-smith
+  - text: production company - intergalactic studios
+  - text: label - decca records
+media:
+  - type: video
+    src: videos/jordan-cutdown.mp4
+    poster: videos/posters/jordan-cutdown.jpg
+  - type: image
+    src: images/jordan-rakei/jordan-1.jpg
+    alt: jordan rakei — live at abbey road
+    loading: lazy
+  - type: image
+    src: images/jordan-rakei/jordan-2.jpg
+    alt: jordan rakei — live at abbey road
+    loading: lazy
+  - type: video
+    src: videos/jordan-cutdown-2.mp4
+    poster: videos/posters/jordan-cutdown-2.jpg
+  - type: image
+    src: images/jordan-rakei/jordan-3.jpg
+    alt: jordan rakei — live at abbey road
+    loading: lazy
+  - type: image
+    src: images/jordan-rakei/jordan-4.jpg
+    alt: jordan rakei — live at abbey road
+    loading: lazy
