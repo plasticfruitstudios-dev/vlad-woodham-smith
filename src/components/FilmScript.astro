@@ -10,6 +10,10 @@
 
   document.addEventListener('astro:page-load', () => {
     if (window.__pfsFilmCleanup) { window.__pfsFilmCleanup(); window.__pfsFilmCleanup = null; }
+    // non-Vimeo players (YouTube) reveal on load; never leave one hidden
+    document.querySelectorAll('.player iframe:not([src*="player.vimeo.com"])').forEach((f) => {
+      setTimeout(() => f.classList.add('ready'), 2000);
+    });
     const iframes = document.querySelectorAll('.player iframe[src*="player.vimeo.com"]');
     if (!iframes.length) return;
     const players = [];

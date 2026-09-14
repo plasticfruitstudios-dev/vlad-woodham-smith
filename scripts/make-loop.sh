@@ -4,10 +4,10 @@
 # poster frame the site shows before the loop plays.
 #
 # Usage:
-#   bash make-loop.sh <source-file> <start> <duration> <output-name>
+#   bash scripts/make-loop.sh <source-file> <start> <duration> <output-name>
 #
 # Example — the Barry Can't Swim cut (3:58, 15 seconds):
-#   bash make-loop.sh ~/Desktop/barry-master.mov 00:03:58 15 barry-cant-swim
+#   bash scripts/make-loop.sh ~/Desktop/barry-master.mov 00:03:58 15 barry-cant-swim
 #
 # Output lands in public/videos/<output-name>.mp4 and
 # public/videos/posters/<output-name>.jpg (copied to src/assets/videos/posters/)
@@ -20,8 +20,8 @@ DUR="$3"
 NAME="$4"
 
 if [ -z "$SRC" ] || [ -z "$START" ] || [ -z "$DUR" ] || [ -z "$NAME" ]; then
-  echo "Usage: bash make-loop.sh <source-file> <start> <duration> <output-name>"
-  echo "   eg: bash make-loop.sh ~/Desktop/barry-master.mov 00:03:58 15 barry-cant-swim"
+  echo "Usage: bash scripts/make-loop.sh <source-file> <start> <duration> <output-name>"
+  echo "   eg: bash scripts/make-loop.sh ~/Desktop/barry-master.mov 00:03:58 15 barry-cant-swim"
   exit 1
 fi
 
@@ -30,6 +30,7 @@ if [ ! -f "$SRC" ]; then
   exit 1
 fi
 
+SRC="$(cd "$(dirname "$SRC")" && pwd)/$(basename "$SRC")"  # absolute before we cd
 cd "$(dirname "$0")/.."
 mkdir -p public/videos/posters src/assets/videos/posters
 OUT="public/videos/${NAME}.mp4"
